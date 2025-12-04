@@ -1,229 +1,206 @@
 <!doctype html>
 <html lang="hi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Allplayclic — Downloads</title>
-  <meta name="description" content="Allplayclic — App download page" />
-
-  <style>
-    :root{--bg:#f5f7fb;--card:#ffffff;--accent:#0b6efd;--muted:#6b7280}
-    [data-theme="dark"]{--bg:#0b1220;--card:#071022;--accent:#2b9fff;--muted:#9aa7bf;color:#e6eef8}
-
-    *{box-sizing:border-box}
-    body{
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
-      margin:0; background:var(--bg);
-    }
-    .container{max-width:920px;margin:28px auto;padding:18px}
-    .card{
-      background:var(--card);
-      border-radius:12px;
-      box-shadow:0 8px 26px rgba(2,6,23,0.06);
-      padding:22px;
-    }
-    header{display:flex;gap:12px;align-items:center}
-    .logo{
-      width:64px;height:64px;border-radius:12px;
-      background:linear-gradient(135deg,#e6f0ff,#cfe9ff);
-      display:flex;align-items:center;justify-content:center;
-      font-weight:700;color:#044;
-    }
-    h1{margin:0;font-size:22px}
-    p.lead{margin:6px 0 14px;color:var(--muted)}
-
-    .row{display:flex;gap:16px;flex-wrap:wrap}
-    .left{flex:1;min-width:260px}
-    .right{width:320px}
-
-    .btn{
-      display:inline-block;padding:12px 16px;border-radius:9px;
-      text-decoration:none;color:#fff;background:var(--accent);
-      font-weight:600;border:none;cursor:pointer
-    }
-    .btn.ghost{background:transparent;color:var(--muted);border:1px solid rgba(0,0,0,0.1)}
-
-    .meta-list{margin-top:14px;display:grid;gap:8px}
-    .meta{background:rgba(0,0,0,0.03);padding:10px;border-radius:8px}
-
-    .note{
-      background:#fff8e1;color:#8a6d00;
-      padding:10px;border-radius:8px;margin-top:12px
-    }
-
-    .tabs{display:flex;gap:8px;margin-top:14px}
-    .tab{
-      padding:8px 10px;border-radius:8px;background:#eee;
-      cursor:pointer;font-size:14px
-    }
-    .selected{background:var(--accent);color:#fff}
-
-    .screens{display:flex;gap:8px;margin-top:12px}
-    .screens img{
-      width:86px;height:160px;object-fit:cover;border-radius:8px;
-      border:1px solid rgba(0,0,0,0.06)
-    }
-
-    footer{
-      margin-top:18px;color:var(--muted);font-size:13px;text-align:center
-    }
-
-    .qr{display:flex;gap:12px;align-items:center;margin-top:12px}
-    .counter{font-weight:700;color:var(--accent)}
-
-    @media(max-width:720px){
-      .row{flex-direction:column}
-      .right{width:100%}
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Allplayclick — App Download</title>
+<meta name="description" content="Allplayclick - Personal app download page (APK / AAB)" />
+<style>
+  :root{
+    --bg:#f4f7fb; --card:#fff; --muted:#6b7280; --text:#0f1720; --accent:#0b84ff;
+    --accent2:#06b58a; --radius:12px;
+  }
+  [data-theme="dark"]{
+    --bg:#071025; --card:#071827; --muted:#9aa6bb; --text:#e6eef8; --accent:#4ea8ff; --accent2:#2bd59e;
+  }
+  *{box-sizing:border-box}
+  body{ margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased;}
+  .wrap{ max-width:980px;margin:28px auto;padding:18px; }
+  .card{ background:var(--card); padding:18px;border-radius:var(--radius); box-shadow:0 8px 28px rgba(2,6,23,0.06);}
+  header{ display:flex;align-items:center;gap:14px; }
+  .logo{ width:58px;height:58px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#63d2ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px}
+  h1{ margin:0;font-size:20px }
+  .lead{ margin:6px 0 12px;color:var(--muted) }
+  .grid{ display:flex;gap:18px;flex-wrap:wrap;margin-top:14px }
+  .left{ flex:1; min-width:260px }
+  .right{ width:300px; min-width:220px }
+  .actions{ display:flex;gap:10px;flex-wrap:wrap }
+  .btn{ padding:12px 14px;border-radius:10px;text-decoration:none;color:#fff;font-weight:600;display:inline-block; }
+  .btn.apk{ background:var(--accent) }
+  .btn.aab{ background:var(--accent2) }
+  .btn.ghost{ background:transparent;color:var(--muted);border:1px solid rgba(0,0,0,0.06);padding:10px 12px }
+  .meta{ margin-top:12px; display:grid; gap:8px }
+  .meta .row{ background:rgba(0,0,0,0.03);padding:10px;border-radius:8px;color:var(--muted) }
+  .note{ background:#fffbe6;padding:10px;border-radius:8px;margin-top:12px;color:#6b4b00 }
+  .qr{ display:flex;gap:14px;align-items:center;margin-top:16px }
+  .qr img{ width:120px;height:120px; border-radius:8px;border:1px solid rgba(0,0,0,0.06) }
+  .links a{ display:block;padding:8px;text-decoration:none;color:var(--accent);margin-bottom:8px;border-radius:8px }
+  .small{ font-size:13px;color:var(--muted) }
+  .topright{ margin-left:auto; display:flex; gap:8px; align-items:center }
+  .theme-toggle{ background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px;border-radius:8px; cursor:pointer; color:var(--muted) }
+  .share-row{ display:flex;gap:8px;margin-top:10px;flex-wrap:wrap }
+  footer{ margin-top:18px;color:var(--muted);text-align:center;font-size:13px }
+  @media(max-width:720px){ .grid{ flex-direction:column } .right{ width:100% } }
+</style>
 </head>
-
 <body>
-  <div class="container">
-    <div class="card">
+<div class="wrap">
+  <div class="card">
+    <header>
+      <div class="logo">AP</div>
+      <div style="min-width:0;">
+        <h1>Allplayclick App</h1>
+        <div class="lead">Personal app download page — APK और AAB दोनों उपलब्ध</div>
+      </div>
+      <div class="topright">
+        <button id="themeBtn" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+      </div>
+    </header>
 
-      <header>
-        <div class="logo">AP</div>
-        <div>
-          <h1>Allplayclic App</h1>
-          <p class="lead">Aapki personal app download site.</p>
+    <div class="grid">
+      <div class="left">
+        <div class="actions" role="group" aria-label="Download actions">
+          <a id="downloadAab" class="btn aab" href="#" title="Download AAB">Download .AAB</a>
+          <a id="downloadApk" class="btn apk" href="#" title="Download APK">Download .APK</a>
+          <a id="rawBtn" class="btn ghost" href="#" target="_blank" title="Open repository">Open on GitHub</a>
         </div>
 
-        <button id="themeBtn" class="tab" style="margin-left:auto">Theme</button>
-      </header>
-
-      <div class="row" style="margin-top:18px">
-
-        <!-- LEFT SIDE -->
-        <div class="left">
-
-          <!-- Download Buttons -->
-          <button id="downloadAab" class="btn">Download .AAB</button>
-          <button id="downloadApk" class="btn" style="background:#22c55e;margin-left:10px">
-            Download .APK
-          </button>
-          <a class="btn ghost" href="https://github.com/Allplayclic/allplayclic-hub" target="_blank">GitHub</a>
-
-          <!-- File Info -->
-          <div class="meta-list">
-            <div class="meta">File: <strong>app-release.aab</strong></div>
-            <div class="meta">Version: <strong>1.0</strong> · Size: <strong>~1.3 MB</strong></div>
-            <div class="meta">Updated: <strong>Recently</strong></div>
-          </div>
-
-          <!-- Note -->
-          <div class="note">
-            <strong>Note:</strong> AAB Play Store ke liye hota hai.
-            Phone me install karne ke liye APK download karein.
-          </div>
-
-          <!-- Screenshots -->
-          <div class="screens">
-            <img src="https://github.com/Allplayclic/allplayclic-hub/raw/main/screenshots/s1.png">
-            <img src="https://github.com/Allplayclic/allplayclic-hub/raw/main/screenshots/s2.png">
-            <img src="https://github.com/Allplayclic/allplayclic-hub/raw/main/screenshots/s3.png">
-          </div>
-
-          <!-- Tabs -->
-          <div class="tabs">
-            <div class="tab selected" data-tab="about">About</div>
-            <div class="tab" data-tab="install">Install</div>
-            <div class="tab" data-tab="support">Support</div>
-          </div>
-
-          <!-- Tab Content -->
-          <div id="tabContent" style="margin-top:12px">
-            <div id="about">Yeh app web-to-app converter se banayi gayi hai.</div>
-
-            <div id="install" style="display:none">
-              • APK ho to directly install ho jata hai.<br>
-              • AAB install karne ke liye Play Store internal testing lagti hai.
-            </div>
-
-            <div id="support" style="display:none">
-              Support: your-email@example.com
-            </div>
-          </div>
-
-          <!-- QR + Counter -->
-          <div class="qr">
-            <img id="qrImg" width="120" height="120">
-            <div>
-              <div>Scan to open</div>
-              <div style="margin-top:8px">Downloads: <span id="dlCounter" class="counter">0</span></div>
-            </div>
-          </div>
-
+        <div class="meta" aria-hidden>
+          <div class="row"><strong>File:</strong> <span id="fileName">app-release</span></div>
+          <div class="row"><strong>Version:</strong> <span id="version">1.0</span> · <strong>Size:</strong> <span id="filesize">–</span></div>
+          <div class="row"><strong>Updated:</strong> Recently</div>
         </div>
 
-        <!-- RIGHT SIDE -->
-        <div class="right">
-          <div class="meta">Quick Links</div>
-          <div style="margin-top:10px;display:flex;gap:8px;flex-direction:column">
+        <div class="note"><strong>Note:</strong> `.aab` Play Store के लिए; फोन में install करने के लिए `.apk` download करें।</div>
 
-            <a class="tab" href="https://github.com/Allplayclic/allplayclic-hub/raw/main/app-release.aab" target="_blank">Raw AAB</a>
-
-            <a class="tab" href="https://github.com/Allplayclic/allplayclic-hub/raw/main/app-release.apk" target="_blank">Raw APK</a>
-
-            <a class="tab" href="https://github.com/Allplayclic/allplayclic-hub/settings/pages" target="_blank">Page Settings</a>
-          </div>
-
-          <div style="margin-top:14px" class="meta">More Apps</div>
-          <div style="margin-top:10px;display:flex;gap:8px;flex-direction:column">
-            <a class="tab" href="#">App 1</a>
-            <a class="tab" href="#">App 2</a>
+        <div class="qr" aria-hidden>
+          <img id="qrImg" alt="QR code" />
+          <div style="flex:1">
+            <div style="font-weight:700">Scan to open</div>
+            <div class="small" style="margin-top:6px">Downloads: <span id="dlCounter">0</span></div>
+            <div class="share-row">
+              <button id="shareBtn" class="btn ghost" style="background:#f1f5f9;color:var(--text);border:1px solid rgba(0,0,0,0.06)">Share</button>
+              <button id="copyBtn" class="btn ghost" style="background:#f1f5f9;color:var(--text);border:1px solid rgba(0,0,0,0.06)">Copy Link</button>
+            </div>
           </div>
         </div>
-
       </div>
 
-      <footer>Allplayclic · Built with ❤️</footer>
+      <aside class="right">
+        <div style="font-weight:700;margin-bottom:8px">Quick Links</div>
+        <div class="links">
+          <a id="linkRawAab" href="#" target="_blank">Raw AAB</a>
+          <a id="linkRawApk" href="#" target="_blank">Raw APK</a>
+          <a id="linkPage" href="#" target="_blank">Open Page</a>
+        </div>
 
+        <div style="margin-top:12px">
+          <div style="font-weight:700;margin-bottom:8px">More</div>
+          <div class="links">
+            <a href="#" onclick="alert('App 1')">App 1</a>
+            <a href="#" onclick="alert('App 2')">App 2</a>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
 
-  <script>
-    const RAW_AAB = "https://github.com/Allplayclic/allplayclic-hub/raw/main/app-release.aab";
-    const RAW_APK = "https://github.com/Allplayclic/allplayclic-hub/raw/main/app-release.apk";
-    const PAGE_URL = "https://allplayclic.github.io/allplayclic-hub/";
+  <footer>Allplayclick • Built with ❤️</footer>
+</div>
 
-    const qrImg = document.getElementById("qrImg");
-    qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(PAGE_URL);
+<script>
+/* ========== CONFIG ========== */
+/* Replace these if your branch/name is different */
+const RAW_AAB = "https://raw.githubusercontent.com/Allplayclick/allplayclick-hub/main/app-release.aab";
+const RAW_APK = "https://raw.githubusercontent.com/Allplayclick/allplayclick-hub/main/app-release.apk";
+const REPO_URL = "https://github.com/Allplayclick/allplayclick-hub";
+const PAGE_URL = "https://allplayclick.github.io/allplayclick-hub/"; // your pages url
 
-    const themeBtn = document.getElementById("themeBtn");
-    themeBtn.onclick = () => {
-      let root = document.documentElement;
-      if(root.getAttribute("data-theme") === "dark"){
-        root.removeAttribute("data-theme");
-      } else root.setAttribute("data-theme","dark");
-    };
+/* ========== UI wiring ========== */
+document.getElementById('downloadAab').href = RAW_AAB;
+document.getElementById('downloadApk').href = RAW_APK;
+document.getElementById('rawBtn').href = REPO_URL;
+document.getElementById('linkRawAab').href = RAW_AAB;
+document.getElementById('linkRawApk').href = RAW_APK;
+document.getElementById('linkPage').href = PAGE_URL;
 
-    function getCount(){ return parseInt(localStorage.getItem("dl") || "0"); }
-    function setCount(n){ localStorage.setItem("dl", n); document.getElementById("dlCounter").innerText = n; }
-    setCount(getCount());
+/* QR */
+document.getElementById('qrImg').src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(PAGE_URL);
 
-    function startDownload(url){
-      setCount(getCount()+1);
-      window.open(url, "_blank");
+/* DOWNLOAD COUNTER (localStorage) */
+const COUNTER_KEY = "ap_dl_cnt_v2";
+function getCount(){ return parseInt(localStorage.getItem(COUNTER_KEY) || "0",10); }
+function setCount(n){ localStorage.setItem(COUNTER_KEY, String(n)); document.getElementById('dlCounter').innerText = n; }
+setCount(getCount());
+
+/* START DOWNLOAD (increment + open) */
+function startDownload(url){
+  const c = getCount() + 1; setCount(c);
+  // try to open in new window so user can save/be prompted
+  window.open(url, "_blank");
+}
+
+/* Attach click handlers */
+document.getElementById('downloadAab').addEventListener('click', function(e){
+  e.preventDefault(); startDownload(RAW_AAB);
+});
+document.getElementById('downloadApk').addEventListener('click', function(e){
+  e.preventDefault(); startDownload(RAW_APK);
+});
+
+/* Theme handling */
+const THEME_KEY = "ap_theme_v2";
+function setTheme(t){ document.documentElement.setAttribute('data-theme', t); localStorage.setItem(THEME_KEY, t); }
+document.getElementById('themeBtn').addEventListener('click', ()=>{
+  const cur = localStorage.getItem(THEME_KEY) || 'light';
+  setTheme(cur === 'light' ? 'dark' : 'light');
+});
+setTheme(localStorage.getItem(THEME_KEY) || 'light');
+
+/* Share & Copy */
+document.getElementById('copyBtn').addEventListener('click', async ()=>{
+  try{
+    await navigator.clipboard.writeText(PAGE_URL);
+    alert("Link copied to clipboard.");
+  }catch(e){ alert("Copy failed. URL: " + PAGE_URL); }
+});
+document.getElementById('shareBtn').addEventListener('click', async ()=>{
+  if(navigator.share){
+    try{ await navigator.share({ title: document.title, text: 'Download app', url: PAGE_URL }); }
+    catch(e){ console.log("Share cancelled or failed", e); }
+  } else {
+    alert("Share not supported on this browser. You can copy link.");
+  }
+});
+
+/* Attempt to fetch HEAD for file size (best-effort). If CORS blocked, ignore gracefully */
+const filesizeEl = document.getElementById('filesize');
+async function tryFetchSize(url, el){
+  try{
+    const res = await fetch(url, { method: 'HEAD' });
+    if(res.ok){
+      const len = res.headers.get('content-length');
+      if(len){
+        const kb = Math.round((parseInt(len,10) / 1024));
+        el.innerText = kb + " KB";
+        return;
+      }
     }
+    el.innerText = "—";
+  }catch(e){
+    // Some servers block HEAD due to CORS; fallback to GET attempt short (not ideal).
+    console.log("HEAD fetch failed", e);
+    el.innerText = "—";
+  }
+}
+tryFetchSize(RAW_APK, filesizeEl); // show apk size (fallback if fails)
 
-    document.getElementById("downloadAab").onclick = () => startDownload(RAW_AAB);
-    document.getElementById("downloadApk").onclick = () => startDownload(RAW_APK);
+/* small UX: show filename */
+document.getElementById('fileName').innerText = "app-release";
 
-    const tabs = document.querySelectorAll(".tab[data-tab]");
-    tabs.forEach(tab => {
-      tab.onclick = () => {
-        tabs.forEach(t => t.classList.remove("selected"));
-        tab.classList.add("selected");
+/* Debug info in console */
+console.log({ RAW_AAB, RAW_APK, REPO_URL, PAGE_URL });
 
-        document.getElementById("about").style.display = "none";
-        document.getElementById("install").style.display = "none";
-        document.getElementById("support").style.display = "none";
-
-        document.getElementById(tab.dataset.tab).style.display = "block";
-      };
-    });
-  </script>
-
+</script>
 </body>
 </html>
